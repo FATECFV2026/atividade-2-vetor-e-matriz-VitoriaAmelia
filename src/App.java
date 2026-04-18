@@ -8,7 +8,7 @@ public class App {
         int opcao = -1;
 
         while (opcao != 0) {
-            System.out.println("\n1-Ex01  2-Ex02  3-Ex03  4-Ex04  5-Ex05  6-Ex06  0-Sair");
+            System.out.println("\n1-Ex01  | 2-Ex02 | 3-Ex03  | 4-Ex04 | 5-Ex05 | 6-Ex06 | 0-Sair");
             opcao = scanner.nextInt();
             switch (opcao) {
                 case 1: System.out.println(Arrays.toString(ex01())); break;
