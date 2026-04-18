@@ -23,7 +23,7 @@ public class App {
 
         while (opcao != 0) {
 
-            System.out.println("\n1-Ex01  2-Ex02  3-Ex03  4-Ex04  5-Ex05  6-Ex06  0-Sair");
+            System.out.println("\n1-EX;  2-EX2;  3-EX3;  4-EX4;  5-EX5;  6-EX6;  0-Sair");
             opcao = scanner.nextInt();
 
             switch (opcao) {
@@ -72,8 +72,7 @@ public class App {
      * @param matriz Matriz a ser exibida
      */
     private static void exibirMatriz(int[][] matriz) {
-        // TODO: Implementar exibicao da matriz
-        // Use System.out.printf("%4d ", matriz[i][j]) para formatacao
+        
 
         for (int i = 0; i < matriz.length; i++) {
             for (int j = 0; j < matriz[i].length; j++) {
@@ -89,11 +88,7 @@ public class App {
      * @return Vetor de 10 elementos com progressao geometrica (dobro) ou null se invalido
      */
     public static int[] progressaoGeometrica(int valorInicial) {
-        // TODO: Implementar progressao geometrica
-        // Validar se valorInicial <= 20 (retornar null se invalido)
-        // Criar vetor de 10 elementos
-        // vetor[0] = valorInicial
-        // Para i=1 ate 9: vetor[i] = vetor[i-1] * 2
+        
 
         if (valorInicial > 20) return null;
 
@@ -113,11 +108,7 @@ public class App {
      * @return Vetor de 10 elementos com sequencia decrescente ou null se invalido
      */
     public static int[] sequenciaDecrescente(int valorInicial) {
-        // TODO: Implementar sequencia decrescente
-        // Validar se valorInicial > 1 (retornar null se invalido)
-        // Criar vetor de 10 elementos
-        // vetor[0] = valorInicial
-        // Para i=1 ate 9: vetor[i] = vetor[i-1] - 1
+        
 
         if (valorInicial <= 1) return null;
 
@@ -137,10 +128,7 @@ public class App {
      * @return Vetor com sequencia de 1 ate tamanho ou null se invalido
      */
     public static int[] vetorDinamico(int tamanho) {
-        // TODO: Implementar vetor dinamico
-        // Validar se tamanho <= 1000 (retornar null se invalido)
-        // Criar vetor com tamanho especifico
-        // Para i=0 ate tamanho-1: vetor[i] = i + 1
+        
 
         if (tamanho > 1000) return null;
 
@@ -159,10 +147,7 @@ public class App {
      * @return Vetor de 10 elementos com sequencia crescente
      */
     public static int[] sequenciaCresenteComSoma(int valorInicial) {
-        // TODO: Implementar sequencia crescente
-        // Criar vetor de 10 elementos
-        // vetor[0] = valorInicial
-        // Para i=1 ate 9: vetor[i] = vetor[i-1] + 1
+       
 
         int[] v = new int[10];
         v[0] = valorInicial;
@@ -180,8 +165,7 @@ public class App {
      * @return Soma de todos os elementos
      */
     public static int calcularSoma(int[] vetor) {
-        // TODO: Implementar calculo da soma
-        // Percorrer o vetor e somar todos os elementos
+        
 
         int soma = 0;
 
@@ -198,10 +182,7 @@ public class App {
      * @return Matriz NxN com valores incrementais iniciando em tamanho+1
      */
     public static int[][] matrizIncrementais(int tamanho) {
-        // TODO: Implementar matriz com valores incrementais
-        // Criar matriz quadrada NxN
-        // Contador inicial = tamanho + 1
-        // Para cada posicao [i][j]: matriz[i][j] = contador++
+        
 
         int[][] m = new int[tamanho][tamanho];
         int cont = tamanho + 1;
@@ -221,14 +202,7 @@ public class App {
      * @return Array com 3 matrizes: [0]=N, [1]=Z, [2]=Soma
      */
     public static int[][][] operacaoEntreMatrizes(int tamanho) {
-        // TODO: Implementar operacao entre matrizes
-        // Criar 3 matrizes NxN: matrizN, matrizZ, matrizSoma
-        // Contador inicial = tamanho + 1
-        // Para cada posicao [i][j]:
-        //   matrizN[i][j] = contador
-        //   matrizZ[i][j] = contador (valores iguais)
-        //   matrizSoma[i][j] = matrizN[i][j] + matrizZ[i][j]
-        //   contador++
+        
 
         int[][] n = new int[tamanho][tamanho];
         int[][] z = new int[tamanho][tamanho];
