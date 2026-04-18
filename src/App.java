@@ -4,48 +4,36 @@ import java.util.Scanner;
 public class App {
 
     public static void main(String[] args) throws Exception {
-        Scanner entrada = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in);
         int opcao = -1;
 
         while (opcao != 0) {
-            System.out.println("\n===== MENU DE EXERCÍCIOS =====");
-            System.out.println("1 - Ex01 | 2 - Ex02 | 3 - Ex03 | 4 - Ex04 | 5 - Ex05 | 6 - Ex06 | 0 - Sair");
-
-            opcao = entrada.nextInt();
-
+            System.out.println("\n1-Ex01  2-Ex02  3-Ex03  4-Ex04  5-Ex05  6-Ex06  0-Sair");
+            opcao = scanner.nextInt();
             switch (opcao) {
-                case 1 -> System.out.println(Arrays.toString(ex01()));
-                case 2 -> System.out.println(Arrays.toString(ex02()));
-                case 3 -> System.out.println(Arrays.toString(ex03()));
-                case 4 -> {
-                    int[] v = ex04();
-                    System.out.println(Arrays.toString(v));
-                    System.out.println("Soma total: " + calcularSoma(v));
-                }
-                case 5 -> exibirMatriz(ex05());
-                case 6 -> {
-                    int[][][] r = ex06();
-                    exibirMatriz(r[0]);
-                    exibirMatriz(r[1]);
-                    exibirMatriz(r[2]);
-                }
+                case 1: System.out.println(Arrays.toString(ex01())); break;
+                case 2: System.out.println(Arrays.toString(ex02())); break;
+                case 3: System.out.println(Arrays.toString(ex03())); break;
+                case 4: int[] v = ex04(); System.out.println(Arrays.toString(v)); System.out.println("Soma: " + calcularSoma(v)); break;
+                case 5: exibirMatriz(ex05()); break;
+                case 6: int[][][] r = ex06(); exibirMatriz(r[0]); exibirMatriz(r[1]); exibirMatriz(r[2]); break;
             }
         }
     }
 
-    private static int lerValor(Scanner sc, String msg, int min, int max) {
+    private static int lerValor(Scanner scanner, String mensagem, int min, int max) {
         int valor;
         do {
-            System.out.print(msg);
-            valor = sc.nextInt();
+            System.out.print(mensagem);
+            valor = scanner.nextInt();
         } while (valor <= min || valor > max);
         return valor;
     }
 
     private static void exibirMatriz(int[][] matriz) {
-        for (int[] linha : matriz) {
-            for (int valor : linha) {
-                System.out.printf("%4d ", valor);
+        for (int i = 0; i < matriz.length; i++) {
+            for (int j = 0; j < matriz[i].length; j++) {
+                System.out.printf("%4d ", matriz[i][j]);
             }
             System.out.println();
         }
@@ -53,121 +41,111 @@ public class App {
 
     public static int[] progressaoGeometrica(int valorInicial) {
         if (valorInicial > 20) return null;
-
-        int[] n = new int[10];
-        n[0] = valorInicial;
-
-        for (int i = 1; i < 10; i++) {
-            n[i] = n[i - 1] * 2;
+        int[] resultado = new int[10];
+        resultado[0] = valorInicial;
+        for (int i = 1; i < resultado.length; i++) {
+            resultado[i] = resultado[i - 1] * 2;
         }
-        return n;
+        return resultado;
     }
 
     public static int[] sequenciaDecrescente(int valorInicial) {
         if (valorInicial <= 1) return null;
-
-        int[] n = new int[10];
-        n[0] = valorInicial;
-
-        for (int i = 1; i < 10; i++) {
-            n[i] = n[i - 1] - 1;
+        int[] resultado = new int[10];
+        resultado[0] = valorInicial;
+        for (int i = 1; i < resultado.length; i++) {
+            resultado[i] = resultado[i - 1] - 1;
         }
-        return n;
+        return resultado;
     }
 
     public static int[] vetorDinamico(int tamanho) {
         if (tamanho > 1000) return null;
-
-        int[] n = new int[tamanho];
-
-        for (int i = 0; i < tamanho; i++) {
-            n[i] = i + 1;
+        int[] resultado = new int[tamanho];
+        for (int i = 0; i < resultado.length; i++) {
+            resultado[i] = i + 1;
         }
-        return n;
+        return resultado;
     }
 
     public static int[] sequenciaCresenteComSoma(int valorInicial) {
-        int[] n = new int[10];
-        n[0] = valorInicial;
-
-        for (int i = 1; i < 10; i++) {
-            n[i] = n[i - 1] + 1;
+        int[] resultado = new int[10];
+        resultado[0] = valorInicial;
+        for (int i = 1; i < resultado.length; i++) {
+            resultado[i] = resultado[i - 1] + 1;
         }
-        return n;
+        return resultado;
     }
 
     public static int calcularSoma(int[] vetor) {
         int soma = 0;
-        for (int v : vetor) soma += v;
+        for (int elemento : vetor) {
+            soma += elemento;
+        }
         return soma;
     }
 
     public static int[][] matrizIncrementais(int tamanho) {
-        int[][] m = new int[tamanho][tamanho];
-        int cont = tamanho + 1;
-
-        for (int i = 0; i < tamanho; i++) {
-            for (int j = 0; j < tamanho; j++) {
-                m[i][j] = cont++;
+        int[][] matriz = new int[tamanho][tamanho];
+        int contador = tamanho + 1;
+        for (int i = 0; i < matriz.length; i++) {
+            for (int j = 0; j < matriz[i].length; j++) {
+                matriz[i][j] = contador++;
             }
         }
-        return m;
+        return matriz;
     }
 
     public static int[][][] operacaoEntreMatrizes(int tamanho) {
-        int[][] n = new int[tamanho][tamanho];
-        int[][] z = new int[tamanho][tamanho];
+        int[][] matrizN = new int[tamanho][tamanho];
+        int[][] matrizZ = new int[tamanho][tamanho];
         int[][] soma = new int[tamanho][tamanho];
+        int contador = tamanho + 1;
 
-        int cont = tamanho + 1;
-
-        for (int i = 0; i < tamanho; i++) {
-            for (int j = 0; j < tamanho; j++) {
-                n[i][j] = cont;
-                z[i][j] = cont;
-                soma[i][j] = cont * 2;
-                cont++;
+        for (int i = 0; i < matrizN.length; i++) {
+            for (int j = 0; j < matrizN[i].length; j++) {
+                matrizN[i][j] = contador;
+                matrizZ[i][j] = contador;
+                soma[i][j] = contador * 2;
+                contador++;
             }
         }
-
-        return new int[][][]{n, z, soma};
+        return new int[][][]{matrizN, matrizZ, soma};
     }
 
-    // ===================== AUTOGRADER =====================
-
     public static int[] ex01() {
-        Scanner sc = new Scanner(System.in);
-        int v = lerValor(sc, "Informe valor (<=20): ", Integer.MIN_VALUE, 20);
-        return progressaoGeometrica(v);
+        Scanner scanner = new Scanner(System.in);
+        int valorInicial = lerValor(scanner, "Valor (<=20): ", Integer.MIN_VALUE, 20);
+        return progressaoGeometrica(valorInicial);
     }
 
     public static int[] ex02() {
-        Scanner sc = new Scanner(System.in);
-        int v = lerValor(sc, "Informe valor (1-99): ", 1, 99);
-        return sequenciaDecrescente(v);
+        Scanner scanner = new Scanner(System.in);
+        int valorInicial = lerValor(scanner, "Valor (1<v<100): ", 1, 99);
+        return sequenciaDecrescente(valorInicial);
     }
 
     public static int[] ex03() {
-        Scanner sc = new Scanner(System.in);
-        int t = lerValor(sc, "Informe tamanho (1-1000): ", 1, 1000);
-        return vetorDinamico(t);
+        Scanner scanner = new Scanner(System.in);
+        int tamanho = lerValor(scanner, "Valor (1<v<=1000): ", 1, 1000);
+        return vetorDinamico(tamanho);
     }
 
     public static int[] ex04() {
-        Scanner sc = new Scanner(System.in);
-        int v = lerValor(sc, "Informe valor (1-99): ", 1, 99);
-        return sequenciaCresenteComSoma(v);
+        Scanner scanner = new Scanner(System.in);
+        int valorInicial = lerValor(scanner, "Valor (1<v<100): ", 1, 99);
+        return sequenciaCresenteComSoma(valorInicial);
     }
 
     public static int[][] ex05() {
-        Scanner sc = new Scanner(System.in);
-        int t = lerValor(sc, "Informe valor (3-50): ", 3, 50);
-        return matrizIncrementais(t);
+        Scanner scanner = new Scanner(System.in);
+        int tamanho = lerValor(scanner, "Valor (3<v<=50): ", 3, 50);
+        return matrizIncrementais(tamanho);
     }
 
     public static int[][][] ex06() {
-        Scanner sc = new Scanner(System.in);
-        int t = lerValor(sc, "Informe valor (3-50): ", 3, 50);
-        return operacaoEntreMatrizes(t);
+        Scanner scanner = new Scanner(System.in);
+        int tamanho = lerValor(scanner, "Valor (3<v<=50): ", 3, 50);
+        return operacaoEntreMatrizes(tamanho);
     }
 }
