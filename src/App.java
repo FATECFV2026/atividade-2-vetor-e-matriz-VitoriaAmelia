@@ -40,7 +40,9 @@ public class App {
     }
 
     public static int[] progressaoGeometrica(int valorInicial) {
-        if (valorInicial > 20) return null;
+        if (valorInicial > 20) {
+            return null;
+        }
         int[] resultado = new int[10];
         resultado[0] = valorInicial;
         for (int i = 1; i < resultado.length; i++) {
@@ -50,7 +52,9 @@ public class App {
     }
 
     public static int[] sequenciaDecrescente(int valorInicial) {
-        if (valorInicial <= 1) return null;
+        if (valorInicial <= 1) {
+            return null;
+        }
         int[] resultado = new int[10];
         resultado[0] = valorInicial;
         for (int i = 1; i < resultado.length; i++) {
@@ -60,7 +64,9 @@ public class App {
     }
 
     public static int[] vetorDinamico(int tamanho) {
-        if (tamanho > 1000) return null;
+        if (tamanho > 1000) {
+            return null;
+        }
         int[] resultado = new int[tamanho];
         for (int i = 0; i < resultado.length; i++) {
             resultado[i] = i + 1;
