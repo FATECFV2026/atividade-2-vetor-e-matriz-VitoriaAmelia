@@ -27,7 +27,7 @@ public class App {
                 case 4:
                     int[] res = ex04();
                     System.out.println(Arrays.toString(res));
-                    System.out.println("Soma: " + soma(res));
+                    System.out.println("Soma: " + calcularSoma(res)); // ✔ CORRIGIDO AQUI
                     break;
 
                 case 5:
@@ -201,60 +201,36 @@ public class App {
     // NAO REMOVER - Necessarios para avaliacao automatica
     // ========================================
 
-    /**
-     * Metodo ex01 para compatibilidade com autograder
-     * @return resultado do exercicio 01
-     */
     public static int[] ex01() {
         Scanner sc = new Scanner(System.in);
         int valorInicial = ler(sc, "Valor (<=20): ", Integer.MIN_VALUE, 20);
         return progressaoGeometrica(valorInicial);
     }
 
-    /**
-     * Metodo ex02 para compatibilidade com autograder
-     * @return resultado do exercicio 02
-     */
     public static int[] ex02() {
         Scanner sc = new Scanner(System.in);
         int valorInicial = ler(sc, "Valor (1<v<100): ", 1, 99);
         return sequenciaDecrescente(valorInicial);
     }
 
-    /**
-     * Metodo ex03 para compatibilidade com autograder
-     * @return resultado do exercicio 03
-     */
     public static int[] ex03() {
         Scanner sc = new Scanner(System.in);
         int tamanho = ler(sc, "Valor (1<v<=1000): ", 1, 1000);
         return vetorDinamico(tamanho);
     }
 
-    /**
-     * Metodo ex04 para compatibilidade com autograder
-     * @return resultado do exercicio 04
-     */
     public static int[] ex04() {
         Scanner sc = new Scanner(System.in);
         int valorInicial = ler(sc, "Valor (1<v<100): ", 1, 99);
         return sequenciaCresenteComSoma(valorInicial);
     }
 
-    /**
-     * Metodo ex05 para compatibilidade com autograder
-     * @return resultado do exercicio 05
-     */
     public static int[][] ex05() {
         Scanner sc = new Scanner(System.in);
         int tamanho = ler(sc, "Valor (3<v<=50): ", 3, 50);
         return matrizIncrementais(tamanho);
     }
 
-    /**
-     * Metodo ex06 para compatibilidade com autograder
-     * @return resultado do exercicio 06
-     */
     public static int[][][] ex06() {
         Scanner sc = new Scanner(System.in);
         int tamanho = ler(sc, "Valor (3<v<=50): ", 3, 50);
