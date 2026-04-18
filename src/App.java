@@ -31,8 +31,8 @@ public class App {
     }
 
     private static void exibirMatriz(int[][] matriz) {
-        for (int i = 0; i < matriz.length; i++) {
-            for (int j = 0; j < matriz[i].length; j++) {
+        for (int i = 0; i < matriz.length; i = i + 1) {
+            for (int j = 0; j < matriz[i].length; j = j + 1) {
                 System.out.printf("%4d ", matriz[i][j]);
             }
             System.out.println();
@@ -45,8 +45,10 @@ public class App {
         }
         int[] resultado = new int[10];
         resultado[0] = valorInicial;
-        for (int i = 1; i < resultado.length; i++) {
-            resultado[i] = resultado[i - 1] * 2;
+
+        for (int i = 1; i < resultado.length; i = i + 1) {
+            int anterior = resultado[i - 1];
+            resultado[i] = anterior * 2;
         }
         return resultado;
     }
@@ -57,8 +59,10 @@ public class App {
         }
         int[] resultado = new int[10];
         resultado[0] = valorInicial;
-        for (int i = 1; i < resultado.length; i++) {
-            resultado[i] = resultado[i - 1] - 1;
+
+        for (int i = 1; i < resultado.length; i = i + 1) {
+            int anterior = resultado[i - 1];
+            resultado[i] = anterior - 1;
         }
         return resultado;
     }
@@ -68,8 +72,10 @@ public class App {
             return null;
         }
         int[] resultado = new int[tamanho];
-        for (int i = 0; i < resultado.length; i++) {
-            resultado[i] = i + 1;
+
+        for (int i = 0; i < resultado.length; i = i + 1) {
+            int valor = i + 1;
+            resultado[i] = valor;
         }
         return resultado;
     }
@@ -77,8 +83,10 @@ public class App {
     public static int[] sequenciaCresenteComSoma(int valorInicial) {
         int[] resultado = new int[10];
         resultado[0] = valorInicial;
-        for (int i = 1; i < resultado.length; i++) {
-            resultado[i] = resultado[i - 1] + 1;
+
+        for (int i = 1; i < resultado.length; i = i + 1) {
+            int anterior = resultado[i - 1];
+            resultado[i] = anterior + 1;
         }
         return resultado;
     }
@@ -94,9 +102,11 @@ public class App {
     public static int[][] matrizIncrementais(int tamanho) {
         int[][] matriz = new int[tamanho][tamanho];
         int contador = tamanho + 1;
-        for (int i = 0; i < matriz.length; i++) {
-            for (int j = 0; j < matriz[i].length; j++) {
-                matriz[i][j] = contador++;
+
+        for (int i = 0; i < matriz.length; i = i + 1) {
+            for (int j = 0; j < matriz[i].length; j = j + 1) {
+                matriz[i][j] = contador;
+                contador = contador + 1;
             }
         }
         return matriz;
@@ -108,12 +118,12 @@ public class App {
         int[][] soma = new int[tamanho][tamanho];
         int contador = tamanho + 1;
 
-        for (int i = 0; i < matrizN.length; i++) {
-            for (int j = 0; j < matrizN[i].length; j++) {
+        for (int i = 0; i < matrizN.length; i = i + 1) {
+            for (int j = 0; j < matrizN[i].length; j = j + 1) {
                 matrizN[i][j] = contador;
                 matrizZ[i][j] = contador;
                 soma[i][j] = contador * 2;
-                contador++;
+                contador = contador + 1;
             }
         }
         return new int[][][]{matrizN, matrizZ, soma};
